@@ -65,6 +65,10 @@ namespace BloodStorage.Controllers
                 _patientService.Update(existingPatient, patient);
                 return NoContent();
             }
+
+
+
+
             return BadRequest();
         }
 
