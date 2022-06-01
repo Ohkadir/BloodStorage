@@ -18,11 +18,11 @@
 
   <ItemGroup>
     <Folder Include="Views\Home\" />
-    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\Home.html" />
+    <None Include="wwwroot\Images\hospital.jpg" />
   </ItemGroup>
 
 </Project>

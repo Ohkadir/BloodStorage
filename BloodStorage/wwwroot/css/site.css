@@ -1,12 +1,62 @@
 ﻿body {
     margin: 0;
     min-width: 720px;
-    font-family: sans-serif;
+    font-family: montserrat;
+    background: url(../Images/hospital.jpg);
+    background-size: cover;
+    margin: 0;
+    padding:0;
+}
+nav{
+    background: deepskyblue;
+    height: 80px;
+    width: 100%;
+       
+}
+
+    nav ul {
+        float: right;
+        margin-right: 20px; 
+     }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        color: white;
+        font-size: 17px;
+        text-transform: uppercase;
+    }
+
+    a.active, a:hover{
+        background: #1b9bff;
+        transition: .5s;
+    }
+label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+section{
+    background: url('hospital.jpg') no-repeat;
+    background-size: cover;
+    height: calc(100vh -80px);
+
 }
 
 
 /* Include the padding and border in an element's total width and height */
 * {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
 }
 
@@ -60,11 +110,7 @@ label {
 
 /* Remove margins and padding from the ul element (unordered lis)  so that the list is flushed with the
            browser borders instead of leaving a gap */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+
 
 .NavBar {
     display: inline;
@@ -102,28 +148,8 @@ ul {
 
 
 /* Each li element with the ul will hold a todo_item */
-ul li {
-    cursor: pointer;
-    padding: 3px;
-    list-style-type: none;
-    background: black;
-    font-size: 18px;
-}
-
-    /* Set all odd list items to a different background colour (zebra-stripes) */
 
 
-    /* Darker background-color on hover */
-    ul li:hover {
-        background: #ddd;
-    }
-
-    /* When clicked on, change the background colour and strike out text */
-    ul li.checked {
-        background: #888;
-        color: #fff;
-        text-decoration: line-through;
-    }
 
 /* CSS style to hide the "tick" symbol if an item status is not set to "DONE"
            This is done in code - see the addTodoItemToDisplay() function where the element is classList.toggle() */

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/site.css" />
+    <title></title>
+</head>
+<body onload="readTodoItems()">
+    
+
+    <nav>
+        <label class="logo">Patient Finder</label>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="PatientList.html">Patient List</a></li>
+            <li><a href="createPatient.html">Create Patient</a></li>
+            <li><a href="DeletePatient.html">Delete Patient</a></li>
+        </ul>
+    </nav>
+
+    <center>
+        <div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th> Patient Name</th>
+                        <th>Postcode</th>
+                    </tr>
+                </thead>
+                <tbody id="data-output">
+                </tbody>
+            </table>
+        </div>
+    </center>
+
+    <script>
+        // Load the list - expecting an array of todo_items to be returned
+        function readTodoItems() {
+            fetch('https://localhost:7289/api/Patient')
+                // get the JSON content from the response
+                .then((response) => {
+                    if (!response.ok) {
+                        alert("An error has occurred.  Unable to read the TODO list")
+                        throw response.status;
+                    } else return response.json();
+                })
+                // Add the items to the UL element so that it can  be seen
+                // As items is an array, we will the array.map function to through the array and add item to the UL element
+                // for display
+                //.then(items => items.map(item => addTodoItemToDisplay(item)));
+                .then(function (patients) {
+                    let placeholder = document.querySelector("#data-output");
+                    let out = "";
+
+                    for (let patient of patients) {
+                        out += `
+                                                <tr>
+                                                  <td>${patient.name} </td>
+                                                  <td>${patient.postCode} </td>
+                                                </tr>
+                                              `
+                    }
+                    placeholder.innerHTML = out;
+                })
+        }
+
+
+
+    </script>
+
+</body>
+</html>
